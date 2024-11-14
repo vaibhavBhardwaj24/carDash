@@ -1,0 +1,119 @@
+# CarDash - Vehicle Monitoring System
+
+CarDash is a comprehensive vehicle monitoring system that allows real-time tracking of vehicle metrics including speed, fuel level, and engine temperature. The system provides both individual vehicle analytics and fleet-wide monitoring capabilities.
+
+## Features
+
+- Real-time vehicle data monitoring
+- Alert system for critical conditions:
+  - High engine temperature
+  - Low fuel level
+  - Speed alerts
+- Fleet-wide monitoring and statistics
+- RESTful API for data access and management
+
+## Tech Stack
+
+- **Backend**: Node.js with Express
+- **Database**: MongoDB with Mongoose
+- **Cross-Origin Support**: CORS enabled
+- **Data Processing**: Pandas for analytics
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (v4.4 or higher)
+- npm or yarn package manager
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/vaibhavBhardwaj24/carDash.git
+cd carDash
+```
+
+2. Install Node.js dependencies:
+
+```bash
+npm install
+```
+
+3. Install Python dependencies:
+
+```bash
+pip install flask pymongo pandas
+```
+
+4. Configure MongoDB connection in both Node.js and Python services
+
+## API Endpoints
+
+### Node.js API
+
+#### Vehicle Management
+
+```
+POST /createCar
+- Create a new vehicle entry
+- Body: { vehicleName: string, ownerName: string }
+
+POST /postData
+- Post vehicle telemetry data
+- Body: { id: string, speed: number, fuelLevel: number, engineTemp: number }
+
+GET /getData/:id
+- Retrieve data for a specific vehicle
+- Params: id (vehicle ID)
+
+GET /dashboard
+- Get dashboard data for all vehicles
+
+DELETE /deleteData/:id
+- Delete a vehicle and its associated data
+- Params: id (vehicle ID)
+```
+
+## Alert System
+
+The system monitors and alerts for the following conditions:
+
+- Engine temperature > 220°C (HIGH_TEMP)
+- Fuel level < 10% (LOW_FUEL)
+- Speed > 120 km/h (SPEED_ALERT)
+
+### CarInfo Schema
+
+```javascript
+{
+  vehicleName: String,
+  ownerName: String
+}
+```
+
+### CarData Schema
+
+```javascript
+{
+  vehicleId: ObjectId,
+  speed: Number,
+  fuelLevel: Number,
+  engineTemp: Number,
+  alerts: [String]
+}
+```
+
+## Running the Application
+
+1. Start MongoDB service
+
+2. Start the Node.js server:
+
+```bash
+npm start
+```
+
+## Author
+
+Vaibhav Bhardwaj
