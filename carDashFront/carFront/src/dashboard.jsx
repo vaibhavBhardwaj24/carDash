@@ -9,7 +9,9 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/dashboard");
+        const response = await axios.get(
+          "https://car-dash-gilt.vercel.app/dashboard"
+        );
         setCarData(response.data.data);
       } catch (error) {
         console.error("Error fetching dashboard data:", error);
@@ -186,7 +188,7 @@ const Dashboard = () => {
                       onClick={async () => {
                         try {
                           const response = await axios.delete(
-                            `http://localhost:3000/deleteData/${car._id}`
+                            `https://car-dash-gilt.vercel.app/deleteData/${car._id}`
                           );
                           console.log(response);
                         } catch (error) {

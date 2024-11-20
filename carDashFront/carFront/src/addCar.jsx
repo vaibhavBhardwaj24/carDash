@@ -15,10 +15,13 @@ const CreateCarForm = () => {
     setStatus({ loading: true, error: null, success: false });
 
     try {
-      const response = await axios.post("http://localhost:3000/createCar", {
-        vehicleName,
-        ownerName,
-      });
+      const response = await axios.post(
+        "https://car-dash-gilt.vercel.app/createCar",
+        {
+          vehicleName,
+          ownerName,
+        }
+      );
 
       if (response.status !== 201) {
         throw new Error("Failed to create car entry");
