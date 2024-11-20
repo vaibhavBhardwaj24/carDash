@@ -9,3 +9,4 @@ console.log("connected");
 app.listen(process.env.PORT, () => {
   console.log("server working");
 });
+export default app;
