@@ -42,8 +42,6 @@ app.post("/postData", async (req, res) => {
       alerts,
     });
 
-    // console.log(data);
-
     res.status(201).json({ ok: true, data });
   } catch (error) {
     res.status(400).json({ error: error.message });
