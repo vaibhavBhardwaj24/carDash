@@ -6,7 +6,7 @@ dotenv.config({ path: ".env" });
 console.log("starting");
 await connectDB();
 console.log("connected");
-app.listen(process.env.PORT, () => {
-  console.log("server working");
-});
+// app.listen(process.env.PORT, () => {
+//   console.log("server working");
+// });
 export default app;
